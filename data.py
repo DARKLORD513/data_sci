@@ -1,8 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import math
-import random
-import numpy as np
 from sklearn.linear_model import LinearRegression
 
 data = pd.read_csv('games.csv')
@@ -34,7 +32,7 @@ def pearson():
     summation = sum(ai * bi for ai, bi in zip(meta, user))
     mean_a = meta.mean()
     mean_b = user.mean()
-    n = 17435
+    n = len(meta)
     part1 = n*mean_a*mean_b
     numerator = summation - part1
     std_a = meta.std()
@@ -64,7 +62,7 @@ plt.title('Meta Score')
 plt.show()
 
 #! 2d Histogram
-plt.hist2d(user1,meta1,bins=[16,6],cmap='Blues')
+plt.hist2d(user1,meta1,bins=[6,16],cmap='Blues')
 plt.xlabel('User Review')
 plt.ylabel('Meta Review')
 plt.title('User Review vs. Meta Review')
